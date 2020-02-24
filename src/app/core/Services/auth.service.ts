@@ -1,10 +1,14 @@
 import { Authenticate, AuthStateModel } from '../store/model/auth.model';
 import { UserModel } from '../store/model/user.model';
 import { throwError, of, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 
 const mockUser = {token: null, access:{username: 'ali', password:'alipass'}, user: {name: 'ali', email: 'ali.karim@caxtonfx.com'}};
 
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService{
     private loggedIn = false;
 

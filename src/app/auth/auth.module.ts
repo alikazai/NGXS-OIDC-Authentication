@@ -18,7 +18,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: '', component: UserHomeComponent, canActivate: [AuthGuard] },
+      { path: 'login', component: LoginPageComponent },
+      {
+        path: 'home',
+        component: UserHomeComponent,
+        canActivate: [AuthGuard],
+      },
     ]),
   ]
 })

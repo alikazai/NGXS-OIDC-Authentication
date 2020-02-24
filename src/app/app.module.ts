@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +10,7 @@ import { AuthState } from './core/store/state/auth.state';
 import { MaterialModule } from './shared/material';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
     NgxsModule.forRoot([AuthState]),
