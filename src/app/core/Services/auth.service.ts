@@ -1,0 +1,28 @@
+import { Authenticate, AuthStateModel } from '../store/model/auth.model';
+import { UserModel } from '../store/model/user.model';
+import { throwError, of, Observable } from 'rxjs';
+
+
+const mockUser = {token: null, access:{username: 'ali', password:'alipass'}, user: {name: 'ali', email: 'ali.karim@caxtonfx.com'}};
+
+export class AuthService{
+    private loggedIn = false;
+
+    login(auth: AuthStateModel): Observable<AuthStateModel> {
+        if (auth.access.username !== 'ngconf') {
+          return throwError('Invalid username or password');
+        }
+    
+        this.loggedIn = true;
+        return of(mockUser);
+      }
+    
+      logout() {
+        this.loggedIn = false;
+        return of(true);
+      }
+    
+      check() {
+        return of(this.loggedIn ? mockUser : null);
+      }
+}
