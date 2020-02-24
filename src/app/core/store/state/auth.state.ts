@@ -32,10 +32,10 @@ export class AuthState{
 
     @Action(Login)
     login({ patchState }: StateContext<AuthStateModel>, action: Login){
-        return this.authService.login(action.payload).pipe(
+        return this.authService.login(action.payload.access).pipe(
             tap((result) => {
                 patchState({
-                    token: result.token,
+                    //token: result.token,
                     user: action.payload.user
                 });
             })

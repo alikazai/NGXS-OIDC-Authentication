@@ -4,7 +4,8 @@ import { throwError, of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 
-const mockUser = {token: null, access:{username: 'ali', password:'alipass'}, user: {name: 'ali', email: 'ali.karim@caxtonfx.com'}};
+// const mockUser = {token: null, access:{username: 'ali', password:'alipass'}, user: {name: 'ali', email: 'ali.karim@caxtonfx.com'}};
+const mockUser = {username: 'ali', password:'alipass'};
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ const mockUser = {token: null, access:{username: 'ali', password:'alipass'}, use
 export class AuthService{
     private loggedIn = false;
 
-    login(auth: AuthStateModel): Observable<AuthStateModel> {
-        if (auth.access.username !== 'ngconf') {
-          return throwError('Invalid username or password');
-        }
+    login(auth: AuthStateModel["access"]): Observable<AuthStateModel["access"]> {
+        // if (auth.username !== 'ngconf') {
+        //   return throwError('Invalid username or password');
+        // }
     
         this.loggedIn = true;
         return of(mockUser);
