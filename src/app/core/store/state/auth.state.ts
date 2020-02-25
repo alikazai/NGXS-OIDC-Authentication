@@ -22,7 +22,7 @@ export class AuthState{
     static token(state: AuthStateModel): string | null {
       return state.token;
     }
-  
+
     @Selector()
     static isAuthenticated(state: AuthStateModel): boolean {
       return !!state.token;
@@ -31,12 +31,12 @@ export class AuthState{
     constructor(private authService: AuthService){}
 
     @Action(Login)
-    login({ patchState }: StateContext<AuthStateModel>, action: Login){
-        return this.authService.login(action.payload.access).pipe(
+    login({ patchState }: StateContext<AuthStateModel>, {payload}: Login){
+        return this.authService.login(payload).pipe(
             tap((result) => {
                 patchState({
                     //token: result.token,
-                    user: action.payload.user
+                    user : { name: result.name , email: result.email}
                 });
             })
           );

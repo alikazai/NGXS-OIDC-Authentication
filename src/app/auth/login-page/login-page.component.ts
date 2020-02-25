@@ -17,7 +17,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  onLogin(credentials: AuthStateModel) {
+  onLogin(credentials: Authenticate) {
     this.store.dispatch(new Login(credentials));
   }
 

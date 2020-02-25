@@ -3,7 +3,7 @@ import { UserModel } from './user.model';
 export interface AuthStateModel{
     token: string | null;
     access: Authenticate;
-    user: UserModel;  
+    user: UserModel;
 }
 
 export interface Authenticate {

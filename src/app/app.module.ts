@@ -11,6 +11,7 @@ import { MaterialModule } from './shared/material';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { AuthModule } from './auth/auth.module';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    NgxsModule.forRoot([AuthState]),
+    NgxsModule.forRoot([AuthState], { developmentMode: !environment.production }),
     NgxsStoragePluginModule.forRoot({
       key: 'auth.token'
     }),
